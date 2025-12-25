@@ -14,7 +14,7 @@ async def main():
     base = input("Enter category URL: ").strip().rstrip('/') + '/'
     print(f"Started parsing category: {base}")
     
-    async with aiohttp.ClientSession(headers=HEADERS, connector=aiohttp.TCPConnector(limit=260, limit_per_host=80), timeout=aiohttp.ClientTimeout(total=40)) as s:
+    async with aiohttp.ClientSession(headers=HEADERS, connector=aiohttp.TCPConnector(limit=300, limit_per_host=100), timeout=aiohttp.ClientTimeout(total=60)) as s:
         html0 = await req(s, base)
         pages = (int(re.search(r'Знайдено\s*(\d+)', html0).group(1)) + 39) // 40 if re.search(r'Знайдено\s*(\d+)', html0) else 1
         print(f"Detected {pages} pages")
