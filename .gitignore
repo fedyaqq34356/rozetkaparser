@@ -1,0 +1,6 @@
+/venv
+ready.txt
+parser.log
+/__pycache__
+*.txt
+*.cvs
